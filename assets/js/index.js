@@ -427,7 +427,7 @@ function loadFileList(pathname) {
       success: function (res) {
         res.files = _.sortBy(res.files, function (f) {
           var weight = f.type == 'dir' ? 'A' : 'a'; // 排序依据 文件名前缀
-          return weight + f.name.toUpperCase(); // 依据文件名
+          return weight + f.name; // 依据文件名
         })
         vm.files = res.files;
         vm.auth = res.auth;
