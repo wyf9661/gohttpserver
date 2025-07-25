@@ -2,13 +2,13 @@
 
 set -eu
 
-VERSION=$(git describe --abbrev=0 --tags)
-REVCNT=$(git rev-list --count HEAD)
-DEVCNT=$(git rev-list --count $VERSION)
-if test $REVCNT != $DEVCNT
-then
-	VERSION="$VERSION.dev$(expr $REVCNT - $DEVCNT)"
-fi
+VERSION=$(git describe --abbrev=6 --all)
+# REVCNT=$(git rev-list --count HEAD)
+# DEVCNT=$(git rev-list --count $VERSION)
+# if test $REVCNT != $DEVCNT
+# then
+# 	VERSION="$VERSION.dev$(expr $REVCNT - $DEVCNT)"
+# fi
 echo "VER: $VERSION"
 
 GITCOMMIT=$(git rev-parse HEAD)
@@ -27,8 +27,7 @@ build() {
 		-o dist/gohttpserver-${3:-""}
 }
 
-build linux arm linux-arm
-build darwin amd64 mac-amd64
 build linux amd64 linux-amd64
-build linux 386 linux-386
 build windows amd64 win-amd64.exe
+build sylixos arm64 sylixos-arm64
+build sylixos amd64 sylixos-amd64
