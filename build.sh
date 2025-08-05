@@ -28,6 +28,8 @@ build() {
 }
 
 build linux amd64 linux-amd64
+build linux arm64 linux-arm64
 build windows amd64 win-amd64.exe
+build windows arm64 win-arm64.exe
 build sylixos arm64 sylixos-arm64
 build sylixos amd64 sylixos-amd64
